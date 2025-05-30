@@ -1,258 +1,404 @@
 
-# 🎯 IndicaçõesPRO
+# 🎯 IndicaFlow Brasil - Frontend
 
-Uma plataforma SaaS open-source completa para gestão de programas de indicação, desenvolvida com tecnologias modernas e foco na experiência do usuário.
+## 📋 Visão Geral
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Version](https://img.shields.io/badge/version-1.0.0--beta-orange.svg)
-![Platform](https://img.shields.io/badge/platform-Web-brightgreen.svg)
+O **IndicaFlow Brasil** é uma plataforma SaaS open-source completa para gestão de programas de indicação, desenvolvida com foco na experiência do usuário brasileiro e acessibilidade universal.
 
-## 📖 Sobre o Projeto
+### 🌟 Características Principais
 
-O **IndicaçõesPRO** é uma solução completa para empresas que desejam implementar e gerenciar programas de indicação de forma profissional. A plataforma oferece desde funcionalidades básicas até recursos avançados de gamificação e analytics.
+- 🎨 **Interface Moderna**: React 18 + TypeScript + Tailwind CSS
+- ♿ **Acessibilidade First**: Preparado para integração com VLibras e padrões WCAG 2.1 AA
+- 🌍 **Multi-idioma**: Português (BR) e Inglês nativo
+- 📱 **Responsivo**: Design mobile-first
+- 🔧 **Modular**: Arquitetura preparada para extensões
+- 🚀 **Performance**: Otimizado com Vite e componentes lazy
 
-### ✨ Principais Funcionalidades
+## 🏗️ Arquitetura do Sistema
 
-- 📊 **Dashboard Avançado**: KPIs visuais, gráficos interativos e insights automáticos
-- 🎯 **Gestão de Programas**: Configuração flexível de regras e recompensas
-- 👥 **Gestão de Indicações**: Rastreamento completo do lead à conversão
-- 🏆 **Sistema de Gamificação**: Pontos, badges e rankings
-- 🔗 **Webhooks**: Integrações automáticas com sistemas externos
-- ⚙️ **Administração**: Gestão de usuários e configurações globais
-- 🔍 **Busca Global**: Encontre rapidamente qualquer informação
-- 📱 **Progressive Web App**: Experiência mobile otimizada
-- 🌙 **Modo Escuro/Claro**: Interface adaptável às preferências
-- 🌍 **Multi-idioma**: Português (BR) e Inglês
-
-## 🆕 Melhorias Recentes (v1.0.0-beta)
-
-### 📊 Dashboard Revolucionário
-- **Gráficos Interativos**: Visualização avançada com Recharts (área, barras, pizza)
-- **Ações Rápidas**: Botões para principais funcionalidades do sistema
-- **Insights Automáticos**: Recomendações baseadas em dados históricos
-- **KPIs Visuais**: Cards com tendências e indicadores de performance
-- **Busca Global**: Campo de busca integrado para toda a plataforma
-
-### 🎨 UX/UI Aprimorada
-- **Navegação Intuitiva**: Sidebar reorganizada com agrupamento lógico
-- **Filtros Dinâmicos**: Sistema de filtros na atividade recente
-- **Responsividade Total**: Design mobile-first para todos os dispositivos
-- **Animações Suaves**: Transições e micro-interações aprimoradas
-- **Acessibilidade**: Conformidade com WCAG 2.1 AA
-
-### 🔧 Arquitetura Modular
-- **Componentes Reutilizáveis**: Estrutura preparada para escalabilidade
-- **TypeScript Completo**: Tipagem forte em toda a aplicação
-- **Performance Otimizada**: Carregamento lazy e otimizações avançadas
-- **Estado Centralizado**: Preparação para gerenciamento complexo
-
-## 🏗️ Estrutura do Projeto
-
+### Frontend (Branch: main)
 ```
-indicacoes-pro/
-├── 📁 backend/                 # API Node.js + Express + PostgreSQL (Em desenvolvimento)
-│   ├── src/
-│   ├── prisma/
-│   ├── tests/
-│   └── package.json
-├── 📁 frontend/                # Interface React + TypeScript (Atual)
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── dashboard/      # Componentes do dashboard
-│   │   │   ├── layout/         # Layout e navegação
-│   │   │   └── ui/             # Componentes base (Shadcn/UI)
-│   │   ├── pages/              # Páginas da aplicação
-│   │   ├── hooks/              # Hooks customizados
-│   │   ├── lib/                # Utilitários e configurações
-│   │   └── mock/               # Dados mockados
-│   └── package.json
-├── 📁 docs/                    # Documentação do projeto
-│   ├── PRD.md                  # Documento de requisitos
-│   ├── ROADMAP.md              # Planejamento de desenvolvimento
-│   ├── CONTRIBUTING.md         # Guia de contribuição
-│   └── API.md                  # Documentação da API (futuro)
-├── 📁 mcp/                     # Configurações de infraestrutura (futuro)
-│   ├── nginx/
-│   ├── monitoring/
-│   └── scripts/
-├── docker-compose.yml          # Orquestração de containers (futuro)
-├── .env.example               # Variáveis de ambiente
-├── LICENSE                    # Licença MIT
-└── README.md                  # Este arquivo
+src/
+├── components/
+│   ├── layout/             # Layout principal
+│   │   ├── Header.tsx      # Cabeçalho com navegação global
+│   │   ├── Sidebar.tsx     # Menu lateral fixo
+│   │   └── RightDrawer.tsx # Painel de detalhes/contexto
+│   ├── dashboard/          # Componentes do dashboard
+│   │   ├── Dashboard.tsx   # Página principal
+│   │   ├── DashboardCharts.tsx # Gráficos e visualizações
+│   │   ├── QuickActions.tsx    # Ações rápidas
+│   │   └── SearchBar.tsx       # Busca global
+│   ├── ui/                 # Componentes base (shadcn/ui)
+│   └── a11y/              # Componentes de acessibilidade
+├── hooks/                  # Hooks customizados
+├── lib/                    # Utilitários e configurações
+├── mock/                   # Dados simulados para desenvolvimento
+├── pages/                  # Páginas da aplicação
+└── types/                  # Definições TypeScript
 ```
 
-## 🚀 Tecnologias Utilizadas
+### Backend (Planejado)
+```
+backend/
+├── src/
+│   ├── controllers/        # Controladores da API
+│   ├── models/            # Modelos de dados
+│   ├── routes/            # Rotas da API
+│   ├── middleware/        # Middlewares (auth, cors, etc)
+│   ├── services/          # Lógica de negócio
+│   ├── utils/             # Utilitários
+│   └── config/            # Configurações
+├── docs/                  # Documentação da API (Swagger)
+├── tests/                 # Testes automatizados
+└── prisma/                # Schema do banco (se usar Prisma)
+```
 
-### Frontend (Atual)
-- ⚛️ **React 18** + TypeScript para interfaces modernas
-- 🏗️ **Vite** para build ultrarrápido
-- 🎨 **Tailwind CSS** + **Shadcn/UI** para design system
-- 📊 **Recharts** para visualização de dados
-- 🔄 **React Query** para gerenciamento de estado servidor
-- 🧭 **React Router** para roteamento
-- 🌙 **next-themes** para modo escuro/claro
-- 🎯 **Lucide React** para ícones consistentes
+## 🎨 Funcionalidades Implementadas
 
-### Backend (Em Desenvolvimento)
-- 🟢 **Node.js** + **Express** + TypeScript
-- 🐘 **PostgreSQL** + **Prisma ORM**
-- 🔐 **JWT** para autenticação
-- ✅ **Zod** para validação
-- 📡 **Socket.io** para real-time
-- 📚 **Swagger** para documentação
+### ✅ Interface Completa
+- [x] **Dashboard Interativo**: KPIs, gráficos e ações rápidas
+- [x] **Sistema de Navegação**: Sidebar fixa + drawer lateral
+- [x] **Tabs Dinâmicas**: Navegação entre submódulos
+- [x] **Tabelas Editáveis**: Dados mockados para indicações/usuários
+- [x] **Modais**: Criação/edição de registros
+- [x] **Sistema de Notificações**: Feedback visual
+- [x] **Busca Global**: Pesquisa integrada
+- [x] **Modo Escuro/Claro**: Toggle de tema
+- [x] **Multi-idioma**: PT-BR/EN
 
-### Infraestrutura (Planejado)
-- 🐳 **Docker** + **Docker Compose**
-- 🌐 **Nginx** como proxy reverso
-- 📈 **Prometheus** + **Grafana** para monitoramento
-- 📝 **ELK Stack** para logs
+### ✅ Componentes Principais
 
-## 🏃‍♂️ Como Executar
+#### Dashboard
+- 4 KPIs principais com indicadores visuais
+- 4 tipos de gráficos (Area, Bar, Horizontal Bar, Pie)
+- Ações rápidas para principais funcionalidades
+- Busca global com filtros
+
+#### Layout
+- Header fixo com controles globais
+- Sidebar colapsível com 6 seções principais
+- Right drawer para detalhes contextuais
+- Sistema de tabs dinâmicas
+
+#### Dados Mockados
+- Indicações com status e histórico
+- Programas de indicação ativos
+- Usuários e suas estatísticas
+- Webhooks configurados
+- Atividades e logs
+
+## 🔧 Tecnologias Utilizadas
+
+### Core
+- **React 18** - Framework principal
+- **TypeScript** - Tipagem estática
+- **Vite** - Build tool e dev server
+- **Tailwind CSS** - Framework CSS utilitário
+
+### UI/UX
+- **shadcn/ui** - Sistema de componentes
+- **Lucide React** - Ícones consistentes
+- **Recharts** - Gráficos e visualizações
+- **next-themes** - Gerenciamento de temas
+
+### Estado e Dados
+- **TanStack Query** - Gerenciamento de estado servidor
+- **React Router** - Roteamento
+- **React Hook Form** - Formulários
+- **Zod** - Validação de schemas
+
+## 🚀 Como Executar
 
 ### Pré-requisitos
 - Node.js 18+
 - npm ou yarn
 - Git
 
-### 1. Clone o Repositório
+### Instalação
 ```bash
-git clone https://github.com/websolutions-eti/indicacoes-pro.git
-cd indicacoes-pro/frontend
-```
+# Clone o repositório
+git clone https://github.com/wuxiaops/indica-flow-brasil.git
+cd indica-flow-brasil
 
-### 2. Instale as Dependências
-```bash
+# Instale as dependências
 npm install
-# ou
-yarn install
-```
 
-### 3. Execute o Projeto
-```bash
+# Execute o projeto
 npm run dev
-# ou
-yarn dev
+
+# Acesse: http://localhost:5173
 ```
 
-### 4. Acesse a Aplicação
+### Scripts Disponíveis
+```bash
+npm run dev          # Servidor de desenvolvimento
+npm run build        # Build para produção
+npm run preview      # Preview da build
+npm run lint         # Verificação de código
+npm run type-check   # Verificação de tipos
 ```
-Frontend: http://localhost:5173
+
+## 📊 Estrutura de Dados
+
+### Indicações (Referrals)
+```typescript
+interface Referral {
+  id: string;
+  referrer: {
+    name: string;
+    email: string;
+    avatar?: string;
+  };
+  referred: {
+    name: string;
+    email: string;
+    avatar?: string;
+  };
+  program: string;
+  status: 'pending' | 'converted' | 'rejected';
+  reward: number;
+  date: Date;
+  activity: Activity[];
+}
 ```
 
-## 📱 Demonstração
+### Programas
+```typescript
+interface Program {
+  id: string;
+  name: string;
+  description: string;
+  participants: number;
+  conversions: number;
+  conversionRate: number;
+  status: 'active' | 'inactive';
+  reward: number;
+  validUntil: Date;
+}
+```
 
-### Dashboard Principal
-O dashboard oferece uma visão completa das métricas do seu programa de indicação:
+### Usuários
+```typescript
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: 'admin' | 'user' | 'manager';
+  avatar?: string;
+  status: 'active' | 'inactive';
+  totalReferrals: number;
+  totalEarned: number;
+}
+```
 
-- **KPIs Visuais**: Total de indicações, conversões, taxa de conversão e recompensas
-- **Gráficos Interativos**: Tendências de conversão, indicações por mês, performance dos programas
-- **Ações Rápidas**: Acesso direto às principais funcionalidades
-- **Insights Automáticos**: Recomendações baseadas em dados
-- **Busca Global**: Encontre rapidamente qualquer informação
+## 🔌 APIs Esperadas (Backend)
 
-### Gestão de Indicações
-Sistema completo para acompanhar cada indicação:
+### Endpoints Principais
+```
+GET    /api/auth/me                 # Usuário autenticado
+POST   /api/auth/login              # Login
+POST   /api/auth/logout             # Logout
 
-- Estados customizáveis (Pendente, Qualificada, Convertida)
-- Histórico detalhado de cada lead
-- Atribuição automática de indicadores
-- Prevenção de fraudes e duplicatas
+GET    /api/dashboard/stats         # KPIs do dashboard
+GET    /api/dashboard/charts        # Dados para gráficos
 
-### Sistema de Gamificação
-Engaje seus participantes com um sistema robusto:
+GET    /api/referrals               # Lista de indicações
+GET    /api/referrals/:id           # Detalhes de indicação
+POST   /api/referrals               # Criar indicação
+PUT    /api/referrals/:id           # Atualizar indicação
+DELETE /api/referrals/:id           # Excluir indicação
 
-- Sistema de pontos personalizável
-- Badges por conquistas
-- Rankings competitivos
-- Desafios temporais
+GET    /api/programs                # Lista de programas
+POST   /api/programs                # Criar programa
+PUT    /api/programs/:id            # Atualizar programa
+DELETE /api/programs/:id            # Excluir programa
+
+GET    /api/users                   # Lista de usuários
+POST   /api/users/invite            # Convidar usuário
+PUT    /api/users/:id               # Atualizar usuário
+
+GET    /api/webhooks                # Lista de webhooks
+POST   /api/webhooks                # Criar webhook
+PUT    /api/webhooks/:id            # Atualizar webhook
+DELETE /api/webhooks/:id            # Excluir webhook
+
+GET    /api/notifications           # Notificações do usuário
+PUT    /api/notifications/:id/read  # Marcar como lida
+```
+
+### Padrão de Resposta
+```typescript
+interface ApiResponse<T> {
+  success: boolean;
+  data: T;
+  message?: string;
+  pagination?: {
+    page: number;
+    limit: number;
+    total: number;
+    totalPages: number;
+  };
+}
+```
+
+### Headers de Autenticação
+```
+Authorization: Bearer <jwt_token>
+Content-Type: application/json
+Accept: application/json
+```
+
+## ♿ Acessibilidade (A11y)
+
+### Preparação para VLibras
+O sistema está preparado para integração com o VLibras (tradutor de Libras do governo brasileiro):
+
+```typescript
+// Estrutura preparada em src/components/a11y/
+interface A11yConfig {
+  vlibras: {
+    enabled: boolean;
+    position: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
+    avatar: string;
+  };
+  screenReader: {
+    enabled: boolean;
+    announcements: boolean;
+  };
+  highContrast: {
+    enabled: boolean;
+    mode: 'auto' | 'manual';
+  };
+}
+```
+
+### Recursos de Acessibilidade
+- 🔍 **Screen Reader**: Compatível com NVDA, JAWS
+- 🎨 **Alto Contraste**: Modo automático/manual
+- ⌨️ **Navegação por Teclado**: Tab index otimizado
+- 🗣️ **VLibras**: Integração com tradutor de Libras
+- 📱 **Responsivo**: Otimizado para todos os dispositivos
+- 🎯 **WCAG 2.1 AA**: Conformidade com padrões internacionais
+
+### Integração VLibras
+```html
+<!-- Widget VLibras (será integrado automaticamente) -->
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper>
+    <div class="vw-plugin-top-wrapper"></div>
+  </div>
+</div>
+```
+
+## 📚 Documentação
+
+### ReadTheDocs
+A documentação completa será hospedada no ReadTheDocs:
+- **URL**: https://indica-flow-brasil.readthedocs.io/
+- **Formato**: Markdown + MkDocs
+- **Idioma**: Português (BR)
+- **Seções**: 
+  - Guia de Instalação
+  - API Reference (Swagger)
+  - Componentes UI
+  - Guias de Contribuição
+  - Acessibilidade
+
+### Swagger API
+Documentação interativa da API:
+- **URL**: /api/docs
+- **Formato**: OpenAPI 3.0
+- **Idioma**: Português (BR)
+- **Recursos**:
+  - Testes interativos
+  - Schemas detalhados
+  - Exemplos de requisições
+
+## 🤝 Contribuindo
+
+### Padrões de Código
+- **ESLint**: Configurado com regras TypeScript
+- **Prettier**: Formatação automática
+- **Husky**: Git hooks para qualidade
+- **Commitizen**: Commits padronizados
+
+### Fluxo de Contribuição
+1. Fork do projeto
+2. Criar branch feature (`git checkout -b feature/nova-funcionalidade`)
+3. Commit das mudanças (`git commit -m 'feat: adiciona nova funcionalidade'`)
+4. Push para a branch (`git push origin feature/nova-funcionalidade`)
+5. Abrir Pull Request
+
+### Convenção de Commits
+```
+feat: nova funcionalidade
+fix: correção de bug
+docs: atualização de documentação
+style: formatação de código
+refactor: refatoração
+test: testes
+chore: tarefas de manutenção
+```
+
+## 🔐 Licença e Uso Comercial
+
+### Licença MIT com Atribuição
+```
+Copyright (c) 2024 Web Solutions ETI BR & WUXIA Ops
+
+Permitido uso comercial com as seguintes condições:
+✅ Uso comercial permitido
+✅ Modificação permitida  
+✅ Distribuição permitida
+✅ Uso privado permitido
+⚠️ Atribuição obrigatória (manter créditos originais)
+```
+
+### Modelo de Sustentabilidade
+- **Core Open Source**: Sempre gratuito
+- **Módulos Premium** (futuro): APIs avançadas, integrações enterprise
+- **Suporte Comercial**: Disponível mediante contrato
+- **White Label**: Licenciamento especial
 
 ## 🗺️ Roadmap
 
-Confira nosso [Roadmap detalhado](docs/ROADMAP.md) para ver o que está por vir:
-
-### ✅ Fase 1 - MVP (Concluído)
-- Interface base e navegação
-- Sistema de tabs dinâmicas
-- Dashboard com analytics avançado
+### ✅ Fase 1 - Frontend Base (Concluído)
+- Interface completa e funcional
 - Componentes reutilizáveis
+- Sistema de temas e idiomas
+- Dados mockados
 
-### 🚧 Fase 2 - Backend Integration (Q1-Q2 2025)
+### 🚧 Fase 2 - Backend Integration (Q1 2025)
 - API Node.js + PostgreSQL
 - Sistema de autenticação
 - Webhooks funcionais
 - Dados reais
 
-### 📋 Fase 3 - Gamificação Avançada (Q2-Q3 2025)
-- Sistema completo de pontos e badges
-- Integrações nativas (Zapier, Slack)
-- Progressive Web App
-- Analytics com IA
+### 📋 Fase 3 - Acessibilidade Avançada (Q2 2025)
+- Integração VLibras completa
+- Certificação WCAG 2.1 AA
+- Testes de acessibilidade automatizados
+- Documentação de a11y
 
-### 🚀 Fase 4+ - Enterprise (Q4 2025+)
+### 🚀 Fase 4 - Recursos Enterprise (Q3-Q4 2025)
 - Multi-tenancy
-- White-label
+- APIs premium com IA
+- Integrações nativas (Zapier, Slack)
 - Analytics preditivos
-- Marketplace de plugins
 
-## 🤝 Como Contribuir
+## 📞 Contato e Suporte
 
-Adoramos contribuições da comunidade! Veja nosso [Guia de Contribuição](docs/CONTRIBUTING.md).
+### Equipe de Desenvolvimento
+- **Web Solutions ETI BR**: Desenvolvimento original
+- **WUXIA Ops**: Arquitetura e infraestrutura
 
-### Formas de Contribuir
-- 🐛 **Bug Reports**: Encontrou um bug? Reporte no GitHub Issues
-- 💡 **Feature Requests**: Sugira novas funcionalidades
-- 📖 **Documentação**: Melhore nossa documentação
-- 🧪 **Testes**: Adicione ou melhore testes existentes
-- 🎨 **UI/UX**: Melhorias na interface e experiência
-- 🔧 **Código**: Contribua com código para novas funcionalidades
-
-## 📄 Licença e Comercialização
-
-### Licença MIT com Atribuição
-Este projeto está sob a licença MIT, permitindo uso comercial com as seguintes condições:
-
-- ✅ **Uso Comercial**: Permitido
-- ✅ **Modificação**: Permitida
-- ✅ **Distribuição**: Permitida
-- ✅ **Uso Privado**: Permitido
-- ⚠️ **Atribuição**: Obrigatória manter créditos originais
-
-### Créditos Obrigatórios
-Ao usar este projeto comercialmente, você deve manter os créditos:
-- **Web Solutions ETI BR** - Desenvolvimento original
-- **WUXIA Ops** - Arquitetura e infraestrutura
-
-### Modelo de Sustentabilidade
-Para manter o projeto ativo e em constante evolução:
-
-🆓 **Versão Open Source (Atual)**
-- Todas as funcionalidades core gratuitas
-- Suporte via comunidade GitHub
-- Atualizações regulares garantidas
-
-💎 **Módulos Premium (Futuro - 2025)**
-- APIs avançadas com machine learning
-- Integrações enterprise (Salesforce, HubSpot)
-- Suporte técnico dedicado com SLA
-- Funcionalidades de white-label
-- Analytics preditivos e IA
-
-## 📊 Métricas e Status Atual
-
-- 🔧 **Status**: Em desenvolvimento ativo (Fase 1 concluída)
-- 📈 **Commits**: Atualizações frequentes
-- 🐛 **Issues**: Rastreamento ativo no GitHub
-- 📚 **Documentação**: Completa e atualizada
-- 🌍 **Idiomas**: Português (BR) e Inglês
-- ⭐ **GitHub Stars**: Crescendo constantemente
-
-## 🆘 Suporte e Comunidade
-
-### Canais Oficiais
+### Canais de Suporte
 - 📧 **Email**: suporte@websolutions-eti.com.br
 - 💬 **GitHub Issues**: Para bugs e feature requests
-- 📚 **Documentação**: Wiki completa no GitHub
-- 🐦 **Twitter**: @IndicacoesPRO (em breve)
+- 📚 **Documentação**: ReadTheDocs
+- 🐦 **Twitter**: @IndicaFlowBR (em breve)
 
 ### Comunidade (Em Breve)
 - 🤝 **Discord**: Servidor da comunidade
@@ -260,61 +406,27 @@ Para manter o projeto ativo e em constante evolução:
 - 🎥 **YouTube**: Vídeos tutoriais
 - 📱 **Telegram**: Grupo de discussão
 
-## 👨‍💻 Desenvolvedores
-
-### Web Solutions ETI BR
-Empresa brasileira especializada em soluções web corporativas:
-- Desenvolvimento de sistemas SaaS
-- Consultoria em transformação digital  
-- Arquitetura de software escalável
-
-### WUXIA Ops
-Especialistas em infraestrutura e DevOps:
-- Arquitetura cloud-native
-- Monitoramento e observabilidade
-- Segurança e compliance
-- Automação de deploy
-
 ---
 
-## 🙏 Agradecimentos
+## 🎯 Começando Agora
 
-Agradecemos à comunidade open source e às tecnologias que tornaram este projeto possível:
+Para começar a usar o IndicaFlow Brasil:
 
-- React Team pela excelente biblioteca
-- Vercel pelo Shadcn/UI
-- Tailwind Labs pelo Tailwind CSS
-- Recharts pela biblioteca de gráficos
-- Comunidade TypeScript
-- Todos os contribuidores
+1. **Clone o repositório**
+2. **Instale as dependências** 
+3. **Execute o projeto**
+4. **Explore a interface**
+5. **Leia a documentação**
+6. **Contribua com melhorias**
 
----
-
-## 📈 Estatísticas do Projeto
-
-```
-📊 Linhas de Código: 5,000+
-🧩 Componentes: 25+
-📄 Páginas: 6+
-🎨 Temas: 2 (Claro/Escuro)
-🌍 Idiomas: 2 (PT-BR/EN)
-📱 Responsividade: 100%
-♿ Acessibilidade: WCAG 2.1 AA
-```
-
----
-
-**⭐ Se este projeto foi útil para você, considere dar uma estrela no GitHub!**
-
-**🚀 Vamos juntos democratizar o acesso a ferramentas profissionais de gestão de indicações!**
+**🚀 Vamos juntos democratizar o acesso a ferramentas profissionais de gestão de indicações no Brasil!**
 
 ---
 
 *Desenvolvido com ❤️ no Brasil*  
 *Web Solutions ETI BR & WUXIA Ops - 2024*
 
-**🔗 Links Importantes:**
-- [📋 PRD Completo](docs/PRD.md)
-- [🗺️ Roadmap Detalhado](docs/ROADMAP.md)
-- [🤝 Guia de Contribuição](docs/CONTRIBUTING.md)
-- [📜 Licença MIT](LICENSE)
+**Versão**: 0.0.1 (Frontend)  
+**Status**: Em desenvolvimento ativo  
+**Licença**: MIT com Atribuição  
+**Idioma**: Português (Brasil)
