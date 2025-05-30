@@ -1,0 +1,2 @@
+Este é um arquivo de teste.
+Se o git não detectar este arquivo, há um problema.
