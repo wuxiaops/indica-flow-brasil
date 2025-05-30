@@ -1,73 +1,279 @@
-# Welcome to your Lovable project
 
-## Project info
+# 🎯 IndicaçõesPRO
 
-**URL**: https://lovable.dev/projects/7389a9c6-0059-4a18-b069-f2a88cc0ce61
+Uma plataforma SaaS open-source completa para gestão de programas de indicação, desenvolvida com tecnologias modernas e foco na experiência do usuário.
 
-## How can I edit this code?
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Version](https://img.shields.io/badge/version-1.0.0--beta-orange.svg)
+![Platform](https://img.shields.io/badge/platform-Web-brightgreen.svg)
 
-There are several ways of editing your application.
+## 📖 Sobre o Projeto
 
-**Use Lovable**
+O **IndicaçõesPRO** é uma solução completa para empresas que desejam implementar e gerenciar programas de indicação de forma profissional. A plataforma oferece desde funcionalidades básicas até recursos avançados de gamificação e analytics.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7389a9c6-0059-4a18-b069-f2a88cc0ce61) and start prompting.
+### ✨ Principais Funcionalidades
 
-Changes made via Lovable will be committed automatically to this repo.
+- 📊 **Dashboard Completo**: KPIs, gráficos e relatórios em tempo real
+- 🎯 **Gestão de Programas**: Configuração flexível de regras e recompensas
+- 👥 **Gestão de Indicações**: Rastreamento completo do lead à conversão
+- 🏆 **Sistema de Gamificação**: Pontos, badges e rankings
+- 🔗 **Webhooks**: Integrações automáticas com sistemas externos
+- ⚙️ **Administração**: Gestão de usuários e configurações globais
 
-**Use your preferred IDE**
+## 🏗️ Estrutura do Projeto
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```
+indicacoes-pro/
+├── 📁 backend/                 # API Node.js + Express + PostgreSQL
+│   ├── src/
+│   ├── prisma/
+│   ├── tests/
+│   └── package.json
+├── 📁 frontend/                # Interface React + TypeScript
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── hooks/
+│   │   ├── lib/
+│   │   └── mock/
+│   └── package.json
+├── 📁 docs/                    # Documentação do projeto
+│   ├── PRD.md
+│   ├── API.md
+│   ├── DEPLOYMENT.md
+│   └── CONTRIBUTING.md
+├── 📁 mcp/                     # Configurações de infraestrutura
+│   ├── nginx/
+│   ├── monitoring/
+│   └── scripts/
+├── docker-compose.yml          # Orquestração de containers
+├── .env.example               # Variáveis de ambiente
+├── LICENSE                    # Licença MIT
+└── README.md                  # Este arquivo
+```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🚀 Tecnologias Utilizadas
 
-Follow these steps:
+### Frontend
+- ⚛️ **React 18** + TypeScript
+- 🏗️ **Vite** para build e desenvolvimento
+- 🎨 **Tailwind CSS** + **Shadcn/UI** para design
+- 📊 **Recharts** para gráficos
+- 🔄 **React Query** para estado de servidor
+- 🧭 **React Router** para roteamento
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Backend (Em Desenvolvimento)
+- 🟢 **Node.js** + **Express** + TypeScript
+- 🐘 **PostgreSQL** + **Prisma ORM**
+- 🔐 **JWT** para autenticação
+- ✅ **Zod** para validação
+- 📡 **Socket.io** para real-time
+- 📚 **Swagger** para documentação
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Infraestrutura
+- 🐳 **Docker** + **Docker Compose**
+- 🌐 **Nginx** como proxy reverso
+- 📈 **Prometheus** + **Grafana** para monitoramento
+- 📝 **ELK Stack** para logs
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🏃‍♂️ Como Executar
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### Pré-requisitos
+- Node.js 18+
+- Docker e Docker Compose
+- Git
+
+### 1. Clone o Repositório
+```bash
+git clone https://github.com/websolutions-eti/indicacoes-pro.git
+cd indicacoes-pro
+```
+
+### 2. Frontend (Desenvolvimento Atual)
+```bash
+cd frontend
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### 3. Ambiente Completo (Futuro)
+```bash
+# Copiar e configurar variáveis de ambiente
+cp .env.example .env
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+# Subir toda a infraestrutura
+docker-compose up -d
 
-**Use GitHub Codespaces**
+# Executar migrações do banco
+docker-compose exec backend npm run migrate
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Acessar aplicação
+# Frontend: http://localhost:3000
+# API: http://localhost:3001
+# Documentação: http://localhost:3001/docs
+```
 
-## What technologies are used for this project?
+## 📱 Demonstração
 
-This project is built with:
+### Dashboard Principal
+O dashboard oferece uma visão completa das métricas do seu programa de indicação:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Total de indicações e conversões
+- Gráficos de evolução temporal
+- Top performers e rankings
+- Alertas e notificações
 
-## How can I deploy this project?
+### Gestão de Indicações
+Sistema completo para acompanhar cada indicação:
 
-Simply open [Lovable](https://lovable.dev/projects/7389a9c6-0059-4a18-b069-f2a88cc0ce61) and click on Share -> Publish.
+- Estados customizáveis (Pendente, Qualificada, Convertida)
+- Histórico detalhado de cada lead
+- Atribuição automática de indicadores
+- Prevenção de fraudes e duplicatas
 
-## Can I connect a custom domain to my Lovable project?
+### Gamificação
+Engaje seus participantes com um sistema robusto:
 
-Yes, you can!
+- Sistema de pontos personalizável
+- Badges por conquistas
+- Rankings competitivos
+- Desafios temporais
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🤝 Como Contribuir
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Adoramos contribuições da comunidade! Veja como você pode ajudar:
+
+1. **Fork** o projeto
+2. **Clone** seu fork localmente
+3. **Crie** uma branch para sua feature (`git checkout -b feature/nova-funcionalidade`)
+4. **Commit** suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
+5. **Push** para a branch (`git push origin feature/nova-funcionalidade`)
+6. **Abra** um Pull Request
+
+### Tipos de Contribuição
+- 🐛 **Bug Reports**: Encontrou um bug? Reporte no GitHub Issues
+- 💡 **Feature Requests**: Sugira novas funcionalidades
+- 📖 **Documentação**: Melhore nossa documentação
+- 🧪 **Testes**: Adicione ou melhore testes existentes
+- 🎨 **UI/UX**: Melhorias na interface e experiência
+
+## 📄 Licença e Comercialização
+
+### Licença MIT com Atribuição
+Este projeto está sob a licença MIT, permitindo uso comercial com as seguintes condições:
+
+- ✅ **Uso Comercial**: Permitido
+- ✅ **Modificação**: Permitida
+- ✅ **Distribuição**: Permitida
+- ✅ **Uso Privado**: Permitido
+- ⚠️ **Atribuição**: Obrigatória manter créditos originais
+
+### Créditos Obrigatórios
+Ao usar este projeto comercialmente, você deve manter os créditos:
+- **Web Solutions ETI BR** - Desenvolvimento original
+- **WUXIA Ops** - Arquitetura e infraestrutura
+
+### Modelo de Sustentabilidade
+Para manter o projeto ativo e em constante evolução:
+
+🆓 **Versão Open Source (Atual)**
+- Todas as funcionalidades core gratuitas
+- Suporte via comunidade GitHub
+- Atualizações regulares garantidas
+
+💎 **Módulos Premium (Futuro - 2025)**
+- APIs avançadas com machine learning
+- Integrações enterprise (Salesforce, HubSpot)
+- Suporte técnico dedicado com SLA
+- Funcionalidades de white-label
+- Analytics preditivos e IA
+
+## 🗺️ Roadmap
+
+### ✅ Fase 1 - MVP (Atual)
+- Interface base e navegação
+- Sistema de tabs dinâmicas
+- Gestão básica de indicações
+- Dashboard com KPIs mockados
+- Troca de idioma e tema
+
+### 🚧 Fase 2 - Backend Integration (Q1 2025)
+- API completa Node.js + PostgreSQL
+- Sistema de autenticação JWT
+- Webhooks funcionais
+- Dados reais substituindo mocks
+- Deploy com Docker
+
+### 📋 Fase 3 - Advanced Features (Q2 2025)
+- Sistema de gamificação completo
+- Relatórios avançados e exportação
+- Integrações nativas (Zapier, Make)
+- Mobile app (PWA)
+- Notificações em tempo real
+
+### 🚀 Fase 4 - Enterprise (Q3 2025)
+- Funcionalidades white-label
+- Analytics com machine learning
+- Multi-tenancy
+- Integrações enterprise
+- Marketplace de plugins
+
+## 📊 Métricas e Status
+
+- 🔧 **Status**: Em desenvolvimento ativo
+- 📈 **Commits**: Atualizações frequentes
+- 🐛 **Issues**: Rastreamento ativo no GitHub
+- 📚 **Documentação**: Em expansão constante
+- 🌍 **Idiomas**: Português (BR) e Inglês
+
+## 🆘 Suporte e Comunidade
+
+### Canais Oficiais
+- 📧 **Email**: suporte@websolutions-eti.com.br
+- 💬 **GitHub Issues**: Para bugs e feature requests
+- 📚 **Documentação**: Wiki no GitHub
+- 🐦 **Twitter**: @IndicacoesPRO (em breve)
+
+### Comunidade
+- 🤝 **Discord**: Servidor da comunidade (em breve)
+- 📝 **Blog**: Artigos e tutoriais
+- 🎥 **YouTube**: Vídeos tutoriais
+- 📱 **Telegram**: Grupo de discussão
+
+## 👨‍💻 Desenvolvedores
+
+### Web Solutions ETI BR
+Empresa brasileira especializada em soluções web corporativas, focada em:
+- Desenvolvimento de sistemas SaaS
+- Consultoria em transformação digital  
+- Arquitetura de software escalável
+
+### WUXIA Ops
+Especialistas em infraestrutura e DevOps, responsáveis por:
+- Arquitetura cloud-native
+- Monitoramento e observabilidade
+- Segurança e compliance
+- Automação de deploy
+
+---
+
+## 🙏 Agradecimentos
+
+Agradecemos à comunidade open source e às tecnologias que tornaram este projeto possível:
+
+- React Team pela excelente biblioteca
+- Vercel pelo Shadcn/UI
+- Tailwind Labs pelo Tailwind CSS
+- Comunidade TypeScript
+- Todos os contribuidores
+
+---
+
+**⭐ Se este projeto foi útil para você, considere dar uma estrela no GitHub!**
+
+**🚀 Vamos juntos democratizar o acesso a ferramentas profissionais de gestão de indicações!**
+
+---
+
+*Desenvolvido com ❤️ no Brasil*  
+*Web Solutions ETI BR & WUXIA Ops - 2024*
